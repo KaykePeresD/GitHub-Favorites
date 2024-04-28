@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" class="no-favorite-profile">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Application to favorite your favorites profiles of GitHub.">
+  <title>GitFavorites</title>
+
+  <link rel="shortcut icon" href="./assets/img/favicon.svg" type="image">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./js/main.js" defer></script>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div id="logo-name">
+        <img src="./assets/img/favicon.svg" alt="Logo of GitFav">
+        <h1>GitFav</h1>  
+      </div>
+
+      <div class="input-wrapper">
+        <label for="search-input" class="sr-only">Type the GitHub username to favorite</label>
+        <input type="text" name="search-input" id="search-input" placeholder="Type the GitHub username to favorite">
+        <button><img src="./assets/img/star.svg"><img src="./assets/img/hoverStar.svg" class="hover-star">Favorite!</button>
+      </div>
+    </header>
+
+    <div id="rounded">
+      <table>
+        <!-- <tr>
+          <td colspan="4">
+            <div class="border-top"></div>
+            <div class="border-bottom"></div>
+            <div class="border-left"></div>
+            <div class="border-right"></div>
+          </td>
+        </tr> -->
+  
+        <thead>
+          <tr>
+            <th>Users</th>
+            <th>Repositories</th>
+            <th>Followers</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+  
+        <tbody>
+          <tr>
+            <td>
+              <a target="_blank" href="#">
+                <div class="user-wrap">
+                  <img src="./assets/img/favicon.svg" alt="Image of error user.">
+                  <div class="user">
+                    <strong>UserName Error</strong>
+                    <span>UserLogin Error</span>
+                  </div>
+                </div>
+              </a>
+            </td>
+            <td class="repositories">404</td>
+            <td class="followers">1234</td>
+            <td>
+              <button class="remove-button">Remove</button>
+            </td>
+          </tr>
+        </tbody>
+  
+        <!-- <tfoot>
+          <tr><td colspan="4"></td></tr>
+        </tfoot> -->
+      </table>
+      
+      <div id="no-favorites-message">
+        <img src="./assets/img/astonishedStar.svg" alt="Astonished Star">
+        <p>No favorite yet</p>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

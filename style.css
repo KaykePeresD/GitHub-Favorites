@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --ff-primary: 'Roboto', sans-serif;
+  --ff-secundary: 'Roboto Mono', monospace;
+  --fc-primary: hsla(0, 0%, 100%, 1);
+  --fc-secundary: #a19e9e;
+  --fc-table: hsla(240, 9%, 89%, 1);
+  --fc-remove-button: hsla(355, 91%, 66%, 1);
+  --fc-remove-button-hover: rgb(231, 145, 152);
+  --fc-no-profiles-message: hsla(189, 4%, 32%, 1);
+  --bc-primary: #000;
+  --bc-input: #06181C;
+  --bc-search-button: hsla(195, 91%, 25%, 1);
+  --bc-table-header: hsla(194, 72%, 13%, 1);
+  --bc-table-body: hsla(195, 61%, 6%, 0.5);
+  --bc-table-body-even: hsla(192, 65%, 7%, 1);
+  --bc-table-body-scroll: hsla(191, 31%, 42%, 1);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+body {
+  font-size: 1.6rem;
+
+  background-color: var(--bc-primary);
+  font-family: var(--ff-primary);
+  color: var(--fc-primary);
+
+  display: grid;
+  justify-items: center;
+  align-items: start;
+
+  height: min(100vh);
+}
+
+#logo-name, tbody, #no-favorites-message {
+  font-family: var(--ff-secundary);
+}
+
+a {
+  text-decoration: none;
+  color: var(--fc-primary);
+}
+
+button {
+  cursor: pointer;
+}
+
+#app {
+  display: grid;
+  place-items: center;
+
+  width: 144rem;
+}
+
+/* Header */
+header {
+  width: 112rem;
+  height: 4.8rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  margin-top: 11.5rem;
+  margin-bottom: 8.7rem;
+}
+
+header #logo-name {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+header .input-wrapper {
+  display: flex;
+  gap: .8rem;
+}
+header .input-wrapper input {
+  background-color: var(--bc-input);
+  padding: 1.6rem;
+  width: 53rem;
+
+  font-size: 1.6rem;
+  color: var(--fc-primary);
+  
+  border: 0;
+  border-radius: .5rem;
+}
+header .input-wrapper input::placeholder {
+  color: var(--fc-secundary);
+}
+header .input-wrapper button {
+  background-color: var(--bc-search-button);
+  padding: 1.2rem 3.2rem;
+
+  font-size: 1.4rem;
+  color: var(--fc-primary);
+  text-transform: uppercase;
+  font-weight: 700;
+  
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  
+  border: 0;
+  border-radius: .5rem;
+
+  transition: all .1s ease-in-out;
+}
+header .input-wrapper button img {
+  margin-top: -.4rem;
+}
+
+header .input-wrapper button:active {
+  background-color: var(--fc-primary);
+  color: var(--bc-search-button);
+}
+header .input-wrapper button:active img,
+img.hover-star {
+  display: none;
+}
+header .input-wrapper button:active img.hover-star {
+  display: block;
+}
+
+
+
+/* Table */
+#rounded {
+  border: .4rem solid var(--bc-table-body-scroll);
+  border-radius: 1.9rem;
+
+  overflow: hidden; 
+  /* Cortar as bordas da table se elas não estiverem arredondadas. */
+
+  width: 112.7rem;
+  height: fit-content;
+
+  margin-bottom: 4rem;
+}
+
+table {
+  width: 112rem;
+  max-height: 62.4rem;
+  
+  border-collapse: collapse;
+  
+  position: relative;
+
+  /* --table-border-radius: 1.4rem;
+  --table-border-thickness: .0rem; */
+}
+/* .border-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: var(--table-border-thickness);
+  border-radius: var(--table-border-radius) var(--table-border-radius) 0 0;
+  background-color: var(--bc-table-body-scroll);
+}
+.border-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: var(--table-border-thickness);
+  border-radius: 0 0 var(--table-border-radius) var(--table-border-radius);
+  background-color: var(--bc-table-body-scroll);
+}
+.border-left{
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: var(--table-border-thickness);
+  height: 100%;
+  border-radius: var(--table-border-radius) 0 0 var(--table-border-radius);
+  background-color: var(--bc-table-body-scroll);
+}
+.border-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: var(--table-border-thickness);
+  height: 100%;
+  border-radius: 0 var(--table-border-radius) var(--table-border-radius) 0;
+  background-color: var(--bc-table-body-scroll);
+} */
+
+table thead {
+  background-color: var(--bc-table-header);
+}
+thead th {
+  text-align: start;
+  padding: 1.5rem;
+
+  height: 6.4rem;
+}
+thead th:first-child {
+  padding-left: 4rem;
+  width: 50.4rem;
+
+  border-top-left-radius: 1.4rem;
+}
+thead th:last-child {
+  width: 15.8rem;
+
+  border-top-right-radius: 1.4rem;
+}
+
+
+tbody {
+  max-height: 12.4rem;
+  overflow-y: auto; 
+}
+
+tbody tr {
+  border-top: .1rem solid var(--bc-table-body-scroll);
+
+  height: fit-content;
+  white-space: nowrap;
+}
+tbody tr:nth-child(odd) {
+  background-color: var(--bc-table-body);
+}
+tbody tr:nth-child(even) {
+  background-color: var(--bc-table-body-even);
+}
+
+tbody td {
+  text-align: start;
+  
+  padding: 2.4rem;
+  height: fit-content;
+  white-space: nowrap;
+
+  vertical-align: top;
+}
+tbody td:first-child {
+  padding-left: 3rem;
+}
+
+tbody td:first-child .user-wrap {
+  display: flex;
+  gap: 3rem;
+}
+tbody td:first-child .user-wrap img {
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: 5.6rem;
+}
+tbody td:first-child .user {
+  display: grid;
+  gap: .8rem;
+}
+tbody td:first-child .user strong {
+  font-weight: 700;
+}
+tbody td:first-child .user span {
+  font-style: normal;
+  font-weight: 400;
+}
+
+tbody tr td button {
+  background: none;
+  border: none;
+
+  font-size: 2rem;
+  color: var(--fc-remove-button);
+}
+tbody tr td button:hover {
+  color: var(--fc-remove-button-hover);
+}
+
+/* Table with no favorites users */
+#no-favorites-message {
+  display: none;
+}
+#rounded {
+  position: relative;
+}
+html.no-favorite-profile #no-favorites-message {
+  position: absolute;
+  top: 45%;
+  left: 26%;
+
+  display: flex; 
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4rem;
+
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--fc-no-profiles-message);
+}
+#no-favorites-message img {
+  margin-top: -2.1rem;
+}
+html.no-favorite-profile table {
+  height: 62.4rem;
+}
